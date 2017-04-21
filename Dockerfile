@@ -1,15 +1,23 @@
 FROM lsiobase/xenial:latest
 
+ENV HOME=/homeassistant
+
 RUN \
   apt-get update && \
   apt-get install -y \
-    git \
-    python3-pip && \
+    python3-dev \
+    python3-pip
+
+RUN \
   pip3 install --upgrade pip
 
 COPY root /
 
-RUN pip3 install homeassistant
+WORKDIR /homeassistant
+
+RUN \
+  pip3 install homeassistant && \
+  adduser abc root
 
 VOLUME /homeassistant
 

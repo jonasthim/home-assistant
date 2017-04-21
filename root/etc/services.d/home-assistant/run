@@ -3,4 +3,4 @@
 umask 022
 
 exec \
-	s6-setuidgid abc hass --open-ui --config /homeassistant
+	s6-setuidgid abc hass --open-ui --config /config
