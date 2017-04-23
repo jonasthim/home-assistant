@@ -1,7 +1,5 @@
 FROM lsiobase/xenial:latest
 
-ENV HOME=/homeassistant
-
 RUN \
   apt-get update && \
   apt-get install -y \
@@ -19,6 +17,6 @@ RUN \
   pip3 install homeassistant && \
   adduser abc root
 
-VOLUME /homeassistant
+VOLUME /config
 
 EXPOSE 8123
